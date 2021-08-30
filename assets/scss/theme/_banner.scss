@@ -1,0 +1,84 @@
+/*//=============================
+=============|| BANNER ||=========================================================================*/
+.banner{
+    position: relative;
+    height: calc(100% - 80px);
+    margin-top: 80px;
+
+    @media(max-width: 991px){
+        height: 350px;
+    }
+    @media(max-width: 578px){
+        height: 270px;
+    }
+
+    &__title{
+        @include font-size(86px, $device-640: 50px);
+        @media(max-width: 640px){
+            margin-bottom: 0;
+        }
+
+        span{
+            @include inline-block();
+            position: relative;
+            z-index: 1;
+
+            @include before{
+                @include size(calc(100% + 40px), 25px);
+                @include color($success-color);
+                @include position(x, $bottom: 10px, $zIndex: -1);
+                @media (max-width: 640px){
+                    @include size(calc(100% + 20px), 15px);
+                }
+            }
+        }
+    }
+    &__subtitle{
+        @include font-size(35px, $device-640: 26px);
+        @media(max-width: 640px){
+            margin-bottom: 0;
+        }
+    }
+
+    &__content p{
+        @include font-size(25px, $device-640: 18px);
+        color: $font-color;
+        @include line-height(34px, $device-640: 28px);
+    }
+    &:hover .slick-arrow{
+        @include transform(translate(0px, -50%));
+        @include opacity(1);
+        @include font-size(13px);
+    }
+
+    .single-slider{
+        outline: 0;
+    }
+    .slick-list,
+    .slick-track{
+        height: 100%;
+    }
+    .slick-arrow{
+        @include size(40px);
+        @include color($secondary-color, $white);
+        border: 0;
+        @include border-radius(50px);
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+        @include transition();
+        @include opacity(0);
+        // Hover Effect
+        @include hover{        
+            @include color($success-color);
+        }
+    }
+    .slick-prev{
+        @include position($left: 15px);
+        @include transform(translate(30px, -50%));
+    }
+    .slick-next{
+        @include position($right: 15px);
+        @include transform(translate(-30px, -50%));
+    }
+}

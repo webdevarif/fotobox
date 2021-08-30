@@ -1,0 +1,126 @@
+/*//=============================
+=============|| FOOTER ||=========================================================================*/
+.footer{
+    position: relative;
+    padding-top: 60px;
+    @media (max-width: 640px){
+        padding-bottom: 50px;
+    }
+
+    &__menu{
+        @include flexbox();
+        @include justify-content(center);
+        @include align-items(flex-end);
+
+        li{
+            padding: 0px 15px 10px;
+            position: relative;
+
+            @include after{
+                @include size(100%, 4px);
+                @include color($success-color);
+                @include position($bottom: 0, $left: 0);
+            }
+
+            a{
+                text-transform: uppercase;
+                @include font-weight(600);
+                color: $light-color;
+
+                @include hover{
+                    color: $success-color;
+                }
+            }
+        }
+    }
+
+    &__divider{
+        @include inline-block();
+        @include size(100%, 2px);
+        margin-bottom: 30px;
+        display: none;
+        position: relative;
+
+        @include before{
+            @include color($success-color);
+            @include position($left: 50%, $top: 50%);
+            @include transform(translate(-50%, -50%));
+            @include size(100vw, 100%);
+        }
+
+        @media(max-width: 991px){    
+            @include inline-block();
+        }
+    }
+
+    &__info a{
+        @include inline-block();
+        color: $white;
+        margin: 0px 15px;
+
+        @media(max-width: 991px){
+            margin-bottom: 20px;
+        }
+    }
+    &__social a{
+        @include inline-block();
+        @include font-size(30px);
+        @include size(50px, $lheight: 45px);
+        border: 3px solid $light-color;
+        color: $light-color;
+        margin: 0px 15px;
+        @include border-radius(10px);
+
+        @include hover{
+            @include color($success-color, $white);
+        }
+    }
+    &__copyright{
+        p{
+            color: $light-color;
+        }
+        a{
+            color: $light-color;
+
+            @include hover{
+                color: $success-color;
+            }
+        }
+    }
+    &__fixedbutton{
+        @media (min-width: 640px) {
+            display: none;            
+        }
+        @include position(fixed, $bottom: 0px, $left: 0, $zIndex: 9);
+        @include flexbox();
+        width: 100%;
+        @include color($secondary-color, $white);
+        padding-right: 50px;
+
+        a{
+            @include color($success-color, $white);
+            text-align: center;
+            @include font-size(30px);
+            @include flexbox();
+            @include align-items(center);
+            @include justify-content(center);
+            width: 50%;
+            height: 50px;
+            
+            .fa{
+                margin-right: 10px;
+                color: $white;
+            }
+            h3{
+                @include font-size(16px);
+                text-transform: uppercase;
+                text-align: left;
+                color: $light-color;
+                margin-bottom: 0;
+                span{
+                    @include display-block();
+                }
+            }
+        }
+    }
+}

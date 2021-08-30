@@ -1,0 +1,27 @@
+/*!
+ * Theme Name:   Quick Start
+ * Description:  Quick Start Theme Html Theme
+ * Author:       Aalgiman
+ * Author Url:   https://Fiverr.com/Aalgiman
+ * Template:     Elomie
+ * Version:      1.0.0
+ * Text Domain:  Elomie.com
+*/
+
+//*=============================
+//============= Components ==================================================================*/
+@import "variables";
+@import "mixins";
+@import "preloader";
+@import "keyframes";
+@import "functions";
+
+//*=============================
+//============= Add Css Files ==================================================================*/
+@import "../theme/header";
+@import "../theme/banner";
+@import "../theme/footer";
+@import "../theme/button";
+@import "../theme/pages";
+
+ 

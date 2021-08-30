@@ -1,0 +1,86 @@
+// FONTS VARIABLE 
+$primary-fonts: 'Roboto', sans-serif;
+$secondary-fonts: 'Montserrat', sans-serif;
+
+$white            : #ffffff;
+$black            : #000000;
+$body-color       : #f6f6f6;
+$primary-color    : #006F98;
+$secondary-color  : #00262F;
+$trinary-color    : #26f0b6;
+$success-color    : #56B48C;
+$danger-color     : #DC3545;
+$warning-color    : #FFC107;
+$info-color       : #17A2B8;
+
+$light-color      : #F8F9FA;
+$dark-color       : #343A40;
+$font-color       : #001d23;
+$link-color       : $primary-color;
+$link-color-hover : darken($link-color, 8%);
+$border-color     : #eeeeee;
+$line-color       : $primary-color;
+$card-color       : transparent;
+$dark-line-color  : #1f2125;
+$light-bg         : #FAFAFA;
+
+$theme-fonts: (
+    "primary"   : $primary-fonts,
+    "secondary" : $secondary-fonts,
+);
+
+// THEME DEFAULT COLORS VARIABLE
+$theme-colors: (
+    "white"            : $white,
+    "black"            : $black,
+    "body"             : $body-color,
+    "primary"          : $primary-color,
+    "secondary"        : $secondary-color,
+    "trinary"          : $trinary-color,
+    "success"          : $success-color,
+    "danger"           : $danger-color,
+    "warning"          : $warning-color,
+    "info"             : $info-color,
+);
+
+$colors: (
+    "light-color"      : $light-color,
+    "dark-color"       : $dark-color,
+    "font-color"       : $font-color,
+    "$link-color"      : $primary-color,
+    "$link-color-hover": darken($link-color, 8%),
+    "border-color"     : $border-color,
+    "$line-color"      : $primary-color,
+    "card-color"       : transparent,
+    "dark-line-color"  : $dark-line-color,
+    "light-bg"         : $light-bg,
+);
+
+$font-weights: (
+    "light"            : 300,
+    "regular"          : 400,
+    "bold"             : 700,
+    "black"            : 900,
+    "300"              : 300,
+    "400"              : 400,
+    "500"              : 500,
+    "600"              : 600,
+    "700"              : 700,
+    "800"              : 800,
+    "900"              : 900,
+);
+
+$border-radius         : .25rem !default;
+
+
+// FONTS SIZE VARIABLE
+$transition-base : all .2s ease-in-out !default;
+$shadow-base     : -4px 3px 30px 0px rgba(0, 2, 43, .1) !default;
+
+// Quickly modify global styling by enabling or disabling optional features.
+$enable-transitions:          true !default;
+$enable-reduced-motion:       true !default;
+$enable-rounded:              true !default;
+
+.primary-font{font-family: $primary-fonts;}
+.secondary-font{font-family: $secondary-fonts;}

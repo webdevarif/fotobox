@@ -1,0 +1,204 @@
+//***Add Keyframes Area
+//*****************************************************************************/
+@mixin animation($animate_name: true, $duration: 4s, $count: infinite, $delay: false) {
+  animation-name: $animate_name;
+  animation-duration: $duration;
+  animation-iteration-count: $count;
+  animation-delay: $delay;
+  
+  // @1__ Jump Animation
+  @if $animate_name == jump{
+
+    @keyframes jump{
+      0%   {-webkit-transform: translate3d(0,0,0);-moz-transform: translate3d(0,0,0);-o-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}
+      40%   {-webkit-transform: translate3d(0,10%,0);-moz-transform: translate3d(0,10%,0);-o-transform: translate3d(0,10%,0);transform: translate3d(0,10%,0);}
+      100%   {-webkit-transform: translate3d(0,0,0);-moz-transform: translate3d(0,0,0);-o-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}
+    }
+  }
+
+  // @2__ Jump-two Animation
+  @else if $animate_name == jump-two{
+
+    @keyframes jump-two{
+      0%   {-webkit-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}
+      40%  {-webkit-transform: translate3d(0,10px,0);transform: translate3d(0,10px,0);}
+      100% {-webkit-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}
+    }
+  }
+  // @3__ ripple Animation
+  @else if $animate_name == ripple{
+    
+    @keyframes ripple{
+      70% {box-shadow: 0 0 0 70px rgba(255, 255, 255, 0);}
+      100% {box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);}
+    }
+  }
+  // @4__ Rotated Animation
+  @else if $animate_name == rotated {
+    
+    @keyframes rotated{
+      0%   {-webkit-transform: rotate(0);transform: rotate(0);}
+      100% {-webkit-transform: rotate(360deg);transform: rotate(360deg);}
+    }
+  }
+  //@5__ rotatedHalf Animation
+  @else if $animate_name == rotatedHalf {
+    
+    @keyframes rotatedHalf{
+      0%   {-webkit-transform: rotate(0);transform: rotate(0);}
+      50% {-webkit-transform: rotate(90deg);transform: rotate(90deg);}
+      100%   {-webkit-transform: rotate(0);transform: rotate(0);}
+    }
+  }
+  //@6__ rotatedHalfTwo Animation
+  @else if $animate_name == rotatedHalfTwo{
+    
+    @keyframes rotatedHalfTwo{
+      0% {-webkit-transform: rotate(-90deg);transform: rotate(-90deg);}
+      100%   {-webkit-transform: rotate(90deg);transform: rotate(90deg);}
+    }
+  }
+  //@7__ scale-upOne Animation
+  @else if $animate_name == scale-upOne{
+    
+    @keyframes scale-upOne{
+      0%   {-webkit-transform: scale(1);transform: scale(1);}
+      100% {-webkit-transform: scale(0.2);transform: scale(0.2);}
+    }
+  }
+  //@8__ scale-right Animation
+  @else if $animate_name == scale-right {
+    
+    @keyframes scale-right{
+      0%  {-webkit-transform: translateX(-50%);transform: translateX(-50%);}
+      50% {-webkit-transform: translateX(50%);transform: translateX(50%);}
+      100% {-webkit-transform: translateX(-50%);transform: translateX(-50%);}
+    }
+  }
+  //@9__ fade-in Animation
+  @else if $animate_name == fade-in{
+    
+    @keyframes fade-in{
+      0%   {opacity: 0.7;}
+      40%  {opacity: 1;}
+      100% {opacity: 0.7;}
+    }
+  }
+  //@10__ hvr-ripple-out Animation
+  @else if $animate_name == hvr-ripple-out{
+    
+    @keyframes hvr-ripple-out{
+      0% {top: 0px;right: 0px;bottom: 0px;left: 0px;opacity: 1;}
+      100% {top: -6px;right: -6px;bottom: -6px;left: -6px;opacity: 0;}
+    }
+  }
+  //@11__ scale-up-one Animation
+  @else if $animate_name == scale-up-one{
+    
+    @keyframes scale-up-one{
+      0%   {-webkit-transform: scale(1);transform: scale(1);}
+      40%  {-webkit-transform: scale(0.5);transform: scale(0.5);}
+      100% {-webkit-transform: scale(1);transform: scale(1);}
+    }
+  }
+  //@12__ scale-up-two Animation
+  @else if $animate_name == scale-up-two{
+    
+    @keyframes scale-up-two{
+      0%   {-webkit-transform: scale(0.5);transform: scale(0.5);}
+      40%  {-webkit-transform: scale(0.8);transform: scale(0.8);}
+      100% {-webkit-transform: scale(0.5);transform: scale(0.5);}
+    }
+  }
+  //@13__ scale-up-three Animation
+  @else if $animate_name == scale-up-three{
+    
+    @keyframes scale-up-three{
+      0%   {-webkit-transform: scale(1);transform: scale(1);}
+      40%  {-webkit-transform: scale(0.95);transform: scale(0.95);}
+      100% {-webkit-transform: scale(1);transform: scale(1);}
+    }
+  }
+  //@14__ animationFramesOne Animation
+  @else if $animate_name == animationFramesOne{
+    
+    @keyframes animationFramesOne{
+      0% {transform:  translate(0px,0px)  rotate(0deg) ;}
+      20% {transform:  translate(73px,-1px)  rotate(36deg) ;}
+      40% {transform:  translate(141px,72px)  rotate(72deg) ;}
+      60% {transform:  translate(83px,122px)  rotate(108deg) ;}
+      80% {transform:  translate(-40px,72px)  rotate(144deg) ;}
+      100% {transform:  translate(0px,0px)  rotate(0deg) ;}
+    }
+  }
+  //@15__ animationFramesTwo Animation
+  @else if $animate_name == animationFramesTwo{
+    
+    @keyframes animationFramesTwo{
+      0% {transform:  translate(0px,0px)  rotate(0deg) scale(1) ;}
+      20% {transform:  translate(73px,-1px)  rotate(36deg) scale(0.9);}
+      40% {transform:  translate(141px,72px)  rotate(72deg) scale(1);}
+      60% {transform:  translate(83px,122px)  rotate(108deg) scale(1.2);}
+      80% {transform:  translate(-40px,72px)  rotate(144deg) scale(1.1);}
+      100% {transform:  translate(0px,0px)  rotate(0deg) scale(1);}
+    }
+  }
+  //@16__ animationFramesThree Animation
+  @else if $animate_name == animationFramesThree{
+    
+    @keyframes animationFramesThree{
+      0% {-webkit-transform:  translate(165px,-179px) ;-moz-transform:  translate(165px,-179px) ;-o-transform:  translate(165px,-179px) ;transform:  translate(165px,-179px) ;}
+      100% {-webkit-transform:  translate(-346px,617px) ;-moz-transform:  translate(-346px,617px) ;-o-transform:  translate(-346px,617px) ;transform:  translate(-346px,617px) ;}
+    }
+  }
+  //@17__ animationFramesFour Animation
+  @else if $animate_name == animationFramesFour{
+    
+    @keyframes animationFramesFour{
+      0% {-webkit-transform:  translate(-300px,151px)  rotate(0deg) ;-moz-transform:  translate(-300px,151px)  rotate(0deg) ;-o-transform:  translate(-300px,151px)  rotate(0deg) ;transform:  translate(-300px,151px)  rotate(0deg) ;}
+      100% {-webkit-transform:  translate(251px,-200px)  rotate(180deg) ;-moz-transform:  translate(251px,-200px)  rotate(180deg) ;-o-transform:  translate(251px,-200px)  rotate(180deg) ;transform:  translate(251px,-200px)  rotate(180deg) ;}
+    }
+  }
+  //@18__ animationFramesFive Animation
+  @else if $animate_name == animationFramesFive{
+    
+    @keyframes animationFramesFive{
+      0% {-webkit-transform:  translate(61px,-99px) rotate(0deg) ;-moz-transform:  translate(61px,-99px) rotate(0deg) ;-o-transform:  translate(61px,-99px) rotate(0deg) ;transform:  translate(61px,-99px) rotate(0deg) ;}
+      21% {-webkit-transform:  translate(4px,-190px)  rotate(38deg) ;-moz-transform:  translate(4px,-190px)  rotate(38deg) ;-o-transform:  translate(4px,-190px)  rotate(38deg) ;transform:  translate(4px,-190px)  rotate(38deg) ;}
+      41% {-webkit-transform:  translate(-139px,-200px)  rotate(74deg) ;-moz-transform:  translate(-139px,-200px)  rotate(74deg) ;-o-transform:  translate(-139px,-200px)  rotate(74deg) ;transform:  translate(-139px,-200px)  rotate(74deg) ;}
+      60% {-webkit-transform:  translate(-263px,-164px)  rotate(108deg) ;-moz-transform:  translate(-263px,-164px)  rotate(108deg) ;-o-transform:  translate(-263px,-164px)  rotate(108deg) ;transform:  translate(-263px,-164px)  rotate(108deg) ;}
+      80% {-webkit-transform:  translate(-195px,-49px)  rotate(144deg) ;-moz-transform:  translate(-195px,-49px)  rotate(144deg) ;-o-transform:  translate(-195px,-49px)  rotate(144deg) ;transform:  translate(-195px,-49px)  rotate(144deg) ;}
+      100% {-webkit-transform:  translate(-1px,0px)  rotate(180deg) ;-moz-transform:  translate(-1px,0px)  rotate(180deg) ;-o-transform:  translate(-1px,0px)  rotate(180deg) ;transform:  translate(-1px,0px)  rotate(180deg) ;}  
+    }
+  }
+  //@19__ gradientBG Animation
+  @else if $animate_name == gradientBG {
+    
+    @keyframes gradientBG{
+      0% {background-position: 0 0;}
+      50% {background-position: 300% 0;}
+      100% {background-position: 0 0;}
+    }
+  }
+  //@20__ imageBgAnim Animation
+  @else if $animate_name == imageBgAnim {
+    
+    @keyframes imageBgAnim{
+      0% {background-position: 0 0;}
+      50% {background-position: 120% 0;}
+      100% {background-position: 0 0;}
+    }
+  }
+  @else if $animate_name == header_animation {
+    @keyframes header_animation{
+      0%   {-webkit-transform: translate3d(0, -70px, 0);-moz-transform: translate3d(0, -70px, 0);-o-transform: translate3d(0, -70px, 0);transform: translate3d(0, -70px, 0);}
+      100%   {-webkit-transform: translate3d(0,0,0);-moz-transform: translate3d(0,0,0);-o-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}
+    }
+  }
+  
+
+  @else {
+    @error "Unknown Animation #{$direction}.";
+  }
+}
+

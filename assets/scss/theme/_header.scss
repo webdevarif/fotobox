@@ -1,0 +1,82 @@
+/*//=============================
+=============|| HEADER ||=========================================================================*/
+.header{
+	@include position(absolute, $top: 0, $left: 0, $right: 0);
+	@include transition();
+	z-index: 999;
+
+	.navbar-nav {
+		li a{
+			margin-left: 30px;
+			color: $white !important;
+			position: relative;
+			@media(max-width: 991px){
+				margin-left: 0;
+			}
+			@include hover-active{
+				color: $success-color !important;
+			}
+		}
+	}
+}
+
+
+/*//=============================
+=============|| TOGGLER BUTTON ||=========================================================================*/
+.navbar-toggler {
+	border: none;
+	margin-right: 10px;
+
+	span {
+		@include display-block();
+		@include size(25px, 2px);
+		background: $white;
+		margin: auto;
+		margin-bottom: 5px;
+		@include transition(all 400ms linear);
+		cursor: pointer;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&[aria-expanded="false"] span:nth-child(2) {
+		opacity: 1;
+	}
+
+	&[aria-expanded="true"] span:nth-child(2) {
+		opacity: 0;
+	}
+
+	&[aria-expanded="true"] span:first-child {
+		@include transform(rotate(-45deg));
+		position: relative;
+		top: 7.5px;
+	}
+
+	&[aria-expanded="true"] span:last-child {
+		@include transform(rotate(45deg));
+		bottom: 6px;
+		position: relative;
+	}
+}
+@media (max-width:991px){
+	.navbar-collapse{
+		@include color($black);
+		@include padding(10px 0);
+
+		.nav-item a, .nav-link{
+			color: $light-color !important;
+		}
+		.dropdown-menu{
+			background-color: lighten($black, 8%);
+		}
+	}
+}
+
+.sticky-menu{
+	@include position(fixed, $top: 0, $left: 0, $right: 0); 
+	@include animation(header_animation, .4s, 1);
+}
+

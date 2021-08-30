@@ -1,0 +1,60 @@
+/*//=============================
+=============|| BUTTON STYLE ||=========================================================================*/
+.btn{
+	-moz-user-select: none;
+	border-color: transparent;
+    cursor: pointer;
+    @include inline-block();
+	@include font-weight(700);
+	@include line-height(1);
+	letter-spacing: 0;
+	margin-bottom: 0;
+	@include padding (21px 50px);
+	text-align: center;
+    touch-action: manipulation;
+    @include transition(all 0.4s linear);
+	white-space: nowrap;
+    @include border-radius(0);
+
+        
+    // Background Color
+    @each $name, $color in $theme-colors {
+        &__#{$name} {
+            @if $name == 'white'{
+                @include color($color, $font-color);
+            }@else{
+                @include color($color, $white);
+            }
+            @include hover-focus{
+                @include color(transparent, $color);
+                border-color: $color;          
+            }
+        }
+    }
+
+    @each $name, $color in $theme-colors {
+        &-hover__#{$name} {
+            @if $name == 'white'{
+                @include hover-focus{
+                    @include color($white, $font-color);
+                    border-color: $font-color;
+                }
+            }@else{
+                @include hover-focus{
+                    @include color($color, $white);
+                    border-color: $color;
+                }
+            }
+        }
+    }
+
+
+    &__small{
+        @include padding(15px 30px);
+    }  
+
+    i{
+        @include inline-block;
+        margin-right: 3px;
+    }    
+}

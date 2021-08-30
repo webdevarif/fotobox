@@ -1,0 +1,642 @@
+/*
+  Theme Name: Name - Multipurpose HTML Template
+  Support: admin@gmail.com
+  Description: Creative  HTML5 template.
+  Version: 1.0
+*/
+
+/* CSS Index
+-----------------------------------
+1. Theme default css
+2. header
+3. slider
+4. about-area
+5. features-box
+6. department
+7. team
+8. video-area
+9. counter
+10. footer
+*/
+
+@import "variables";
+@import "functions";
+@import "mixins";
+
+/* 1. Theme default css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+html, body{
+  height: 100%;
+}
+ body {
+  font-family: fonts(primary);
+  font-style: normal;
+  @include font-weight(normal);
+}
+
+svg,
+img {
+	max-width: 100%;
+	@include transition(all 0.3s ease-out 0s);
+}
+
+a,
+.button {
+	-webkit-transition: all 0.3s ease-out 0s;
+	-moz-transition: all 0.3s ease-out 0s;
+	-ms-transition: all 0.3s ease-out 0s;
+	-o-transition: all 0.3s ease-out 0s;
+	transition: all 0.3s ease-out 0s;
+}
+a:focus,
+.btn:focus,
+.button:focus {
+	text-decoration: none;
+	outline: none;
+	box-shadow: none;
+}
+
+a:hover,
+.portfolio-cat a:hover,
+.footer -menu li a:hover {
+	color: $link-color-hover;
+	text-decoration: none;
+}
+a,
+button {
+	color: $link-color;
+	outline: medium none;
+}
+button:focus,input:focus,input:focus,textarea,textarea:focus{outline: 0}
+.uppercase {
+	text-transform: uppercase;
+}
+.capitalize {
+	text-transform: capitalize;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $font-color;
+	font-family: $primary-fonts;
+  @include font-weight(700);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  letter-spacing: 0;
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: inherit;
+  }
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+	color: inherit;
+}
+h1 {
+  @include font-size(40px);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+h2 {
+  @include font-size(35px);
+  text-transform: uppercase;
+  // letter-spacing: 0.1em;
+}
+
+h3 {
+  @include font-size(28px);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+h4 {
+  @include font-size(22px);
+}
+
+h5 {
+  @include font-size(18px);
+}
+
+h6 {
+  @include font-size(16px);
+}
+
+.h1 {
+  @extend h1;
+}
+
+.h2 {
+  @extend h2;
+}
+
+.h3 {
+  @extend h3;
+}
+
+.h4 {
+  @extend h4;
+}
+
+.h5 {
+  @extend h5;
+}
+
+.h6 {
+  @extend h6;
+}
+
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+li {
+	list-style: none
+}
+
+p {
+  @include font-size(16px);
+	@include font-weight(normal);
+	@include line-height(26px);
+  margin-bottom: 15px;
+}
+
+hr {
+	border-bottom: 1px solid $border-color;
+	border-top: 0 none;
+	margin: 30px 0;
+	padding: 0;
+}
+label {
+	color: $font-color;
+	cursor: pointer;
+	@include font-size(14px);
+	@include font-weight(400);
+}
+
+*::-moz-selection {
+	background: #d6b161;
+	color: #fff;
+	text-shadow: none;
+}
+::-moz-selection {
+	background: #444;
+	color: #fff;
+	text-shadow: none;
+}
+::selection {
+	background: #444;
+	color: #fff;
+	text-shadow: none;
+}
+*::-moz-placeholder {
+	color: #555555;
+	font-size: 14px;
+	opacity: 1;
+}
+*::placeholder {
+	color: #555555;
+	font-size: 14px;
+	opacity: 1;
+}
+
+// Margins
+@include list-loop('.m-t-', 'margin-top');
+@include list-loop('.m-r-', 'margin-right');
+@include list-loop('.m-b-', 'margin-bottom');
+@include list-loop('.m-l-', 'margin-left');
+@include list-loop('.m-', 'margin');
+// Paddings
+@include list-loop('.p-t-', 'padding-top');
+@include list-loop('.p-r-', 'padding-right');
+@include list-loop('.p-b-', 'padding-bottom');
+@include list-loop('.p-l-', 'padding-left');
+@include list-loop('.p-', 'padding');
+
+// Responsive Padding Margin
+@media (min-width: 991px){
+  .m-b-md-50{
+    margin-bottom: 50px !important;
+  }
+  .m-t-md-50{
+    margin-top: 50px !important;
+  }
+  .p-b-md-50{
+    padding-bottom: 50px !important;
+  }
+  .p-t-md-50{
+    padding-top: 50px !important;
+  }
+}
+
+/* black overlay */
+[data-overlay] {
+  position: relative;
+  z-index: 1;
+  
+  @include before{
+    @include position($left:0, $top: 0, $zIndex: -1);
+    background: $secondary-color none repeat scroll 0 0;
+    @include size(100%);
+  }
+}
+[data-overlay="3"]::before {
+  @include opacity(0.3);
+}
+[data-overlay="4"]::before {
+  @include opacity(0.4);
+}
+[data-overlay="5"]::before {
+  @include opacity(0.5);
+}
+[data-overlay="6"]::before {
+  @include opacity(0.6);
+}
+[data-overlay="7"]::before {
+  @include opacity(0.7);
+}
+[data-overlay="8"]::before {
+  @include opacity(0.8);
+}
+[data-overlay="9"]::before {
+  @include opacity(0.9);
+}
+
+/*Bakcground Color*/
+.bg{
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+
+  &__top{
+    background-size: cover !important;
+    background-position: top center !important;
+    background-repeat: no-repeat !important;
+  }
+
+  // Background Position
+  &__fixed {
+    background-attachment: fixed !important;
+  }
+  &__right{
+    background-position: center right !important;
+  }
+  &__bottom{
+    background-position: bottom center !important;
+  }
+  &__top{
+    background-position: top center !important;
+  }
+  &__center{
+    background-position: center !important;
+  }
+
+  // Background Color
+  @each $name, $color in $theme-colors {
+    &__#{$name} {
+      background: $color !important;
+    }
+  }
+}
+
+.txt{
+  @each $name, $color in $theme-colors {
+    &-#{$name} {
+      color: $color;
+    }
+  }
+}
+
+/*Bakcground Color*/
+.bd{
+  border: 1px solid !important;
+
+  &-r-4{
+    @include border-radius(4px !important);
+  }
+  &-r-5{
+    @include border-radius(5px !important);
+  }
+  &-r-10{
+    @include border-radius(10px !important);
+  }
+  &-r-15{
+    @include border-radius(15px !important);
+  }
+  &-r-20{
+    @include border-radius(20px !important);
+  }
+  &-r-50{
+    @include border-radius(50px !important);
+  }
+  &-r{
+    @include border-radius(50% !important);
+  }
+  &-right, &-top, &-left, &-bottom{
+    border-color: $border-color !important;
+  }
+
+  @include list-loop('&-s-', 'border-width', 20, 1);
+
+  // BORDER COLOR
+  @each $name, $color in $theme-colors {
+    &-#{$name} {
+      border-color: $color !important;
+    }
+  }
+
+}
+// BOX SHADOW
+.shadow{
+  @include box-shadow(0 0.5rem 1rem rgba(0,0,0,0.15) !important);
+  @include transition();
+  &-lg{
+    @include box-shadow(0 1rem 3rem rgba(0,0,0,0.175) !important);
+  }
+  &-hover-lg{
+    @include transition();
+    &:hover{
+      @include box-shadow(0 1rem 3rem rgba(0,0,0,0.175) !important);
+    }
+  }
+  &-md{
+    @include box-shadow($shadow-base);
+  }
+  &-hover-md{
+    @include transition();
+    &:hover{
+      @include box-shadow($shadow-base);
+    }
+  }
+  &-sm{
+    @include box-shadow(0 0.125rem 0.25rem rgba(0,0,0,0.075) !important);
+  }
+  &-hover-sm{
+    @include transition();
+    &:hover{
+      @include box-shadow(0 0.125rem 0.25rem rgba(0,0,0,0.075) !important);
+    }
+  }
+  &-none, 
+  &-hover-none:hover{
+    @include box-shadow(none !important);
+  }
+}
+// Avatar Size
+.avatar{
+  @include inline-block;
+  margin-right: 10px;
+  position: relative;
+
+  @include list-loop('.img-', 'width', 150, 10);
+}
+
+.font{
+  @each $name, $weight in $font-weights {
+    &-#{$name} {
+      font-weight: $weight;
+    }
+  }
+  @include list-loop('&-', 'font-size', 30, 1);
+}
+
+.f-left {
+	float: left
+}
+.f-right {
+	float: right
+}
+/* ------------------------
+4. Overflow
+------------------------*/
+.fix {
+	overflow: hidden;
+
+  &-x {
+    overflow-x: auto;
+  }
+  &-y {
+    overflow-y: auto;
+  }
+  &-auto {
+    overflow: auto;
+  }
+}
+/* ------------------------
+4. Hide Item
+------------------------*/
+
+.hide{
+  &-991{
+    @media (max-width: 991px){
+      display: none !important;
+    }
+  }
+  &-640{
+    @media (max-width: 640px){
+      display: none!important;
+    }
+  }
+  &-480{
+    @media (max-width: 480px){
+      display: none!important;
+    }
+  }
+}
+.separator {
+	border-top: 1px solid #f2f2f2
+}
+.breadcrumb > .active {
+	color: #888;
+}
+/* ------------------------
+4. Left-Right Alignment
+------------------------*/
+.left-0 { left: 0; }
+.right-0 { right: 0; }
+.top-0 { top: 0; }
+.bottom-0 { bottom: 0; }
+.left-50 { left: 50%; transform: translateX(-50%); -webkit-transform: translateX(-50%); -o-transform: translateX(-50%); -ms-transform: translateX(-50%); -moz-transform: translateX(-50%); }
+.top-50 { top: 50%; transform: translateY(-50%); -webkit-transform: translateY(-50%); -o-transform: translateY(-50%); -ms-transform: translateY(-50%); -moz-transform: translateY(-50%); }
+/* ------------------------
+4. scrollUp
+------------------------*/
+.scroll-top {
+  @include size(50px, $lheight: 50px);
+  @include position(fixed, $bottom: 105%, $right: 0px, $zIndex: 99);
+  @include font-size(16px);
+	text-align: center;
+  cursor: pointer;
+  @include color(#dcbc95, #3d3d3d);
+  // @include color($info-color, $white);
+  @include transition(1s ease);
+  border: none;
+  @media( min-width: 640px){
+    right: 50px;
+    @include border-radius(50px); 
+    @include after{
+      @include position($top: 100%, $left: 5%, $zIndex: -1);
+      @include size(90%, 10px);
+      @include opacity(1);
+      @include radial-gradient(center, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 80%);
+    }
+  }
+  
+  &.open {
+    bottom: 30px;
+    @media (max-width: 640px){
+      bottom: 0px;
+    }
+  } 
+  @include hover{
+    @include color($dark-color, $white);
+  }
+}
+dl dt {
+	font-weight: 500;
+}
+dl dd {
+	font-weight: 300;
+}
+.list-none {
+	list-style: none;
+}
+.form-control {
+	&,
+	&:focus {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+    outline: 0;		
+	}
+}
+.no-margin {
+	@include margin(0 !important);
+}
+.no-padding {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+.outline-none{
+  outline: 0;
+}
+.column-center {
+	float: none;
+	margin: 0 auto;
+}
+.list-inline li {
+  @include inline-block();
+  a{
+    @include inline-block();
+  }
+}
+.title{  
+  &-lg{
+    @include font-size(40px, $device-991: 26px);
+  }
+  &-md{
+    @include font-size(24px, $device-991: 20px);
+  }
+  &-sm{
+    @include font-size(22px, $device-991: 15px, $device-640: 12px);
+  }
+}
+.display{
+  &-5{
+    @include font-size(26px, $device-991: 18px);
+    @include line-height(35px, $device-991: 28px);
+  }
+  &-6{
+    @include font-size(14px);
+    @include line-height(24px);
+  }
+}
+.card-body{
+
+  p:last-child{
+    margin-bottom: 0;
+  }
+}
+/*====End Default Css
+==============================================================================================================*/
+input[type=radio] + label,
+input[type=checkbox] + label {
+    @include display-block();
+    margin: 0.2em;
+    cursor: pointer;
+    padding: 0.2em;
+    position: relative;
+  }
+    
+  input[type=checkbox],
+  input[type=radio] {
+    display: none;
+  }
+  
+  input[type=radio] + label:before,
+  input[type=checkbox] + label:before {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Pro";
+    border: 2px solid $success-color;
+    @include inline-block();
+    @include size(20px, $lheight: 16px);
+    padding-bottom: 0.3em;
+    @include font-size(10px);
+    margin-right: 10px;
+    color: transparent;
+    @include transition(0.2s);
+    text-align: center;
+  }
+  input[type=checkbox] + label.round:before,
+  input[type=radio] + label.round:before{
+    @include border-radius(50px);
+  }
+  
+  input[type=checkbox] + label:active:before {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  
+  input[type=radio]:checked + label:before,
+  input[type=checkbox]:checked + label:before {
+    @include color($success-color, $white);
+    border-color: $success-color;
+  }
+  
+  input[type=radio]:disabled + label:before,
+  input[type=checkbox]:disabled + label:before {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    border-color: #aaa;
+  }
+  
+  input[type=checkbox]:checked:disabled + label:before {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    @include color($success-color);
+    border-color: $success-color;
+  }
+  
+  
+  
+  input[type=radio] + label:active:before {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  
+  input[type=radio]:checked:disabled + label:before {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    @include color($success-color);
+    border-color: $success-color;
+  }
+  
